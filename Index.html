@@ -14,7 +14,7 @@ padding: 0;
 body {
 height: 100vh;
 font-family: Arial, sans-serif;
-background-color: #910922;
+background-color: #8a041f;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -55,23 +55,114 @@ height: calc(100vh - 150px);
 .box {
 background-color: #049cf5;
 border: 1px solid #ccc;
-padding: 10px;
+padding: 0px;
 display: flex;
 justify-content: center;
 align-items: center;
 overflow: hidden;
 }
  
-.box-1-logo img {
-max-width: 100%;
-height: auto;
+.data-table {
+  flex: 2;
+  border: #333 solid 0px;
+  padding: 0px;
+  background-color: #049cf5;
 }
- 
+
+/* TABLE SECTION */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 12px 16px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+thead {
+  background-color: #333;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #c7c7c7;
+}
+
+ .column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+} 
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+.login {
+  flex: 1;
+  border: #333 solid 0px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #7ab4f1;
+}
+
 .new-box {
-font-size: 14px;
+  display: grid; 
+  align-items: center;
+  margin-bottom: 0px;
+  font-size: 10px;
 font-weight: bold;
 text-align: center;
-background-color: #d84e18;
+background-color: #7ab4f1;
+
+}
+
+.new-box label {
+  color: #333;
+  font-weight: 0;
+  text-align: left;
+  font-size: 15px;
+}
+
+.new-box input,
+.new-box select,
+.new-box textarea {
+  width: 100%;
+  padding: 2px;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.login-form {
+  padding: 2 15px;
+}
+
+.submit {
+  background-color: #333;
+  color: white;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 95%;
+
+}
+
+.submit:hover {
+  background-color: #444;
 }
  
 .form-box {
@@ -102,11 +193,12 @@ font-size: 18px;
 .form-container button {
 width: 100%;
 padding: 8px;
-margin: 5px 0;
-border-radius: 4px;
+margin: 3.5px 0;
+border-radius: 3.5px;
 font-size: 14px;
 }
- 
+
+
 .form-container input,
 .form-container select,
 .form-container textarea {
@@ -231,19 +323,94 @@ grid-row: 3;
 </div>
 </div>
 <!-- Box 2: Info box -->
-<div class="box new-box">
-  Extra Information
-  </div>
+  <div class="column">
+    <div class="login" id="green">
+      <form class="login-form" onsubmit="return validateLogin()">
+        <h2>Login</h2>
+
+        <div class="box new-box">
+          <label for="email">Email:</label>
+          <div class="input-group">
+            <input type="email" id="Email" name="email" required />
+            <p class="error errorEmail"></p>
+          </div>
+        </div>
+
+        <div class="box new-box">
+          <label for="password">Password:</label>
+          <div class="input-group">
+            <input type="password" id="Password" name="password" required  />
+            <p class="error errorPass"></p>
+          </div>
+        </div>
+
+        <input class="submit" type="submit" value="Login" />
+      </form>
+    </div>
+    </div>
    
-  <!-- Box 1: Info box -->
-  <div class="box box-1-logo">
-  Live Information
-  </div>
-</div>
-
-
  
+  <!-- Box 1: Info box -->
+    <div class="data-table">
+      <table>
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>AQI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bangladesh</td>
+            <td>112</td>
+          </tr>
+          <tr>
+            <td>India</td>
+            <td>160</td>
+          </tr>
+          <tr>
+            <td>USA</td>
+            <td>90</td>
+          </tr>
+          <tr>
+            <td>UK</td>
+            <td>91</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
 <script>
+  
 document.getElementById("registrationForm").addEventListener("submit", function (e) {
 e.preventDefault();
  
